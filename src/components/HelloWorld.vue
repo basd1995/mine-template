@@ -3,22 +3,28 @@
 
 <template>
   <h1>mine-template</h1>
+  <div>
+    <el-button>Default</el-button>
+    <el-button type="primary">
+      Primary
+    </el-button>
+    <el-button type="success">
+      Success
+    </el-button>
+    <el-button type="info">
+      Info
+    </el-button>
+    <el-button type="warning">
+      Warning
+    </el-button>
+    <el-button type="danger">
+      Danger
+    </el-button>
+  </div>
+  <div mt-10 flex="~" justify-center @click="toggleDark()">
+    <div text-gray-500 i="carbon-sun dark:carbon-moon" />
+  </div>
 </template>
 
 <style scoped>
-a {
-  color: #42b983;
-}
-
-label {
-  margin: 0 0.5em;
-  font-weight: bold;
-}
-
-code {
-  background-color: #eee;
-  padding: 2px 4px;
-  border-radius: 4px;
-  color: #304455;
-}
 </style>
