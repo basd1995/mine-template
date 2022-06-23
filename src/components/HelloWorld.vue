@@ -1,8 +1,10 @@
 <script setup lang="ts">
+const count = ref(0)
 </script>
 
 <template>
   <h1>mine-template</h1>
+  <h1>{{ count }}</h1>
   <div>
     <el-button>Default</el-button>
     <el-button type="primary">
