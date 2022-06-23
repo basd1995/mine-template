@@ -19,6 +19,18 @@ This template may help you quickly start a Vue 3 project.
 
 - 🦾 TypeScript, of course
 
+## Try it now!
+
+> mine-template requires Node >=14
+
+clone this repository to your project directory.
+
+run it.
+
+```bash
+pnpm i # If you don't have pnpm installed, run: npm install -g pnpm
+```
+
 
 ## License
 
