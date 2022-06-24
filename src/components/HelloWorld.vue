@@ -26,6 +26,10 @@ const count = ref(0)
   <div mt-10 flex="~" justify-center @click="toggleDark()">
     <div text-gray-500 i="carbon-sun dark:carbon-moon" />
   </div>
+  <div mt-10 flex="~" justify-center>
+    <div v-if="isDark" i-carbon-moon />
+    <div v-else i-carbon-sun />
+  </div>
 </template>
 
 <style scoped>
