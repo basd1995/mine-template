@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import ThemePicker from './ThemePicker.vue'
 import type { Theme } from '~/types'
 
 const count = ref(0)
@@ -45,9 +46,6 @@ const theme2 = ref<Theme[]>([
   <h2 mt-10>
     两种切换图标的写法
   </h2>
-  <div flex="~" justify-center @click="toggleDark()">
-    <div text-gray-500 i="carbon-sun dark:carbon-moon" />
-  </div>
   <div mt-10 flex="~" justify-center @click="toggleDark()">
     <div v-if="isDark" i-carbon-moon text-gray-500 />
     <div v-else i-carbon-sun text-gray-500 />
@@ -60,7 +58,9 @@ const theme2 = ref<Theme[]>([
       颜色2
     </el-button>
   </div>
-  <div>111</div>
+  <div>
+    <ThemePicker />
+  </div>
 </template>
 
 <style scoped>

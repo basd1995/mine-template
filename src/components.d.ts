@@ -5,7 +5,10 @@ import '@vue/runtime-core'
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    ElButton: typeof import('element-plus/es')['ElButton']
+    ElColorPicker: typeof import('element-plus/es')['ElColorPicker']
     HelloWorld: typeof import('./components/HelloWorld.vue')['default']
+    ThemePicker: typeof import('./components/ThemePicker.vue')['default']
   }
 }
 
