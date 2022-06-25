@@ -1,23 +1,8 @@
 <script setup lang="ts">
-import ThemePicker from './ThemePicker.vue'
-import type { Theme } from '~/types'
-
 const count = ref(0)
 const add = () => {
   count.value++
 }
-const theme1 = ref<Theme[]>([
-  {
-    variableName: '--el-color-primary',
-    color: '#e91e63',
-  },
-])
-const theme2 = ref<Theme[]>([
-  {
-    variableName: '--el-color-primary',
-    color: '#2196f3',
-  },
-])
 </script>
 
 <template>
@@ -43,23 +28,28 @@ const theme2 = ref<Theme[]>([
       Danger
     </el-button>
   </div>
-  <h2 mt-10>
+  <p mt-10>
     两种切换图标的写法
-  </h2>
-  <div mt-10 flex="~" justify-center @click="toggleDark()">
+  </p>
+  <div mt-5 flex="~" justify-center @click="toggleDark()">
     <div v-if="isDark" i-carbon-moon text-gray-500 />
     <div v-else i-carbon-sun text-gray-500 />
+    <div i="carbon-sun dark:carbon-moon" text-gray-500 />
   </div>
-  <div mt-10 flex="~" justify-center>
-    <el-button type="primary" @click="changeThemes(theme1)">
-      颜色1
-    </el-button>
-    <el-button type="primary" @click="changeThemes(theme2)">
-      颜色2
-    </el-button>
+  <p mt-10>
+    动态切换默认主题色，后续补一下本地缓存
+  </p>
+  <div mt-5>
+    <ThemePicker />
   </div>
   <div>
-    <ThemePicker />
+    <LightColorTest />
+  </div>
+  <p mt-10>
+    暗黑主题色研究，生成的规则好像不是规律的？和默认不一样。
+  </p>
+  <div>
+    <DarkColorTest />
   </div>
 </template>
 

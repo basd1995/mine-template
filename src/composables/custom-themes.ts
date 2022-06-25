@@ -1,9 +1,7 @@
 import cssColor from 'css-color-function'
-// import { formula } from '~/utils/formula.json'
-// test custom theme
 import themeVariable from 'element-plus/dist/index.css'
 import rgbHex from 'rgb-hex'
-import type { JsonObject, Theme } from '~/types'
+import type { JsonObject } from '~/types'
 
 // 主色表生成公式给cssColor.convert用
 const formula: JsonObject = {
@@ -26,20 +24,20 @@ const colorMap: JsonObject = {
   '#337ecc': 'dark-2',
 }
 
-const el = document.documentElement
+// const el = document.documentElement
 
-export const changeThemes = (themes: Theme[]) => {
-  themes.forEach((theme) => {
-    getComputedStyle(el).getPropertyValue('theme.variableName') // ???
-    el.style.setProperty(theme.variableName, theme.color)
-  })
-}
+// export const changeThemes = (themes: Theme[]) => {
+//   themes.forEach((theme) => {
+//     getComputedStyle(el).getPropertyValue('theme.variableName') // ???
+//     el.style.setProperty(theme.variableName, theme.color)
+//   })
+// }
 
 /**
  * 根据主色生成自定义的色值表
  * @param primaryColor 主色
  */
-export const generateColors = (primaryColor: string) => {
+const generateColors = (primaryColor: string) => {
   if (!primaryColor)
     return
   const colors: JsonObject = {
@@ -49,7 +47,7 @@ export const generateColors = (primaryColor: string) => {
     const value = formula[key].replace(/primary/g, primaryColor)
     colors[key] = `#${rgbHex(cssColor.convert(value))}`
   })
-  return colors || {}
+  return colors
 }
 
 /**
@@ -63,7 +61,7 @@ export const generateColors = (primaryColor: string) => {
   --el-color-primary-dark-2: dark-2;
   * 返回替代后的element-plus样式表
  */
-export const getOriginalStyle = () => {
+const getOriginalStyle = () => {
   let style = themeVariable
   // 根据默认色值为要替换的色值打上标记
   Object.keys(colorMap).forEach((key) => {
