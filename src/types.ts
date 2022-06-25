@@ -3,6 +3,6 @@ export interface Theme {
   color: string
 }
 
-export interface ColorFormula {
+export interface JsonObject {
   [propsName: string]: string
 }

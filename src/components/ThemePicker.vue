@@ -16,7 +16,8 @@ const predefineColors = ref([
 ])
 
 const changeThemeColor = (color: string) => {
-  generateColors(color)
+  const style = generateNewStyle(color)
+  writeNewStyle(style)
 }
 </script>
 
