@@ -1,12 +1,12 @@
 html.dark {
   color-scheme: dark;
-  --el-color-primary: rgb(64, 158, 255);
-  --el-color-primary-light-3: rgb(51, 117, 184);
-  --el-color-primary-light-5: rgb(41, 88, 138);
-  --el-color-primary-light-7: rgb(33, 61, 92);
-  --el-color-primary-light-8: rgb(28, 48, 69);
-  --el-color-primary-light-9: rgb(23, 32, 43);
-  --el-color-primary-dark-2: rgb(102, 177, 255);
+  --el-color-primary: #409eff;
+  --el-color-primary-light-3: #3375b8;
+  --el-color-primary-light-5: #29588a;
+  --el-color-primary-light-7: #213d5c;
+  --el-color-primary-light-8: #1c3045;
+  --el-color-primary-light-9: #17202b;
+  --el-color-primary-dark-2: #66b1ff;
   --el-color-success: #67c23a;
   --el-color-success-light-3: #4e8e2f;
   --el-color-success-light-5: #3e6b27;

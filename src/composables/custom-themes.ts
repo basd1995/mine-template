@@ -1,28 +1,9 @@
 import cssColor from 'css-color-function'
-import themeVariable from 'element-plus/dist/index.css'
+import lightCssVar from 'element-plus/dist/index.css'
+import darkCssVar from 'element-plus/theme-chalk/dark/css-vars.css'
 import rgbHex from 'rgb-hex'
+import { darkColorMap, darkFormula, lightColorMap, lightFormula } from '~/styles/themes/constants'
 import type { JsonObject } from '~/types'
-
-// 主色表生成公式给cssColor.convert用
-const formula: JsonObject = {
-  'light-3': 'color(primary tint(30%))',
-  'light-5': 'color(primary tint(50%))',
-  'light-7': 'color(primary tint(70%))',
-  'light-8': 'color(primary tint(80%))',
-  'light-9': 'color(primary tint(90%))',
-  'dark-2': 'color(primary shade(20%))',
-}
-
-// element-plus 默认色值
-const colorMap: JsonObject = {
-  '#409eff': 'primary',
-  '#79bbff': 'light-3',
-  '#a0cfff': 'light-5',
-  '#c6e2ff': 'light-7',
-  '#d9ecff': 'light-8',
-  '#ecf5ff': 'light-9',
-  '#337ecc': 'dark-2',
-}
 
 // const el = document.documentElement
 
@@ -37,7 +18,7 @@ const colorMap: JsonObject = {
  * 根据主色生成自定义的色值表
  * @param primaryColor 主色
  */
-const generateColors = (primaryColor: string) => {
+const generateColors = (primaryColor: string, formula: JsonObject) => {
   if (!primaryColor)
     return
   const colors: JsonObject = {
@@ -61,40 +42,56 @@ const generateColors = (primaryColor: string) => {
   --el-color-primary-dark-2: dark-2;
   * 返回替代后的element-plus样式表
  */
-const getOriginalStyle = () => {
-  let style = themeVariable
+const getOriginalStyle = (colorMap: JsonObject, cssVar: string) => {
   // 根据默认色值为要替换的色值打上标记
   Object.keys(colorMap).forEach((key) => {
     const value = colorMap[key]
-    style = style.replace(new RegExp(key, 'ig'), value)
+    cssVar = cssVar.replace(new RegExp(key, 'ig'), value)
   })
-  return style
+  return cssVar
 }
 
 /**
  * 根据主色值，生成最新的样式表
  */
 export const generateNewStyle = (primaryColor: string) => {
-  const colors = generateColors(primaryColor)
-  let cssStyleText = getOriginalStyle()
+  const lightColors = generateColors(primaryColor, lightFormula)
+  const darkColors = generateColors(primaryColor, darkFormula)
+
+  let lightStyle = getOriginalStyle(lightColorMap, lightCssVar)
+  let darkStyle = getOriginalStyle(darkColorMap, darkCssVar)
 
   // 遍历生成的样式表，在 CSS 的原样式中进行全局替换
-  Object.keys(colors as JsonObject).forEach((key) => {
-    cssStyleText = cssStyleText.replace(
+  Object.keys(lightColors as JsonObject).forEach((key) => {
+    lightStyle = lightStyle.replace(
       //  不管key前面是什么，都替换成色值
       new RegExp(`(:|\\s+)${key}`, 'g'),
-      `$1${(colors as JsonObject)[key]}`,
+      `$1${(lightColors as JsonObject)[key]}`,
     )
   })
-  return cssStyleText
+  Object.keys(darkColors as JsonObject).forEach((key) => {
+    darkStyle = darkStyle.replace(
+      //  不管key前面是什么，都替换成色值
+      new RegExp(`(:|\\s+)${key}`, 'g'),
+      `$1${(darkColors as JsonObject)[key]}`,
+    )
+  })
+  return { lightStyle, darkStyle }
 }
 
 /**
  * 写入新样式插入到页面的style标签中
  * @param elNewStyle  element-plus 的新样式
  */
-export const writeNewStyle = (elNewStyle: string) => {
+export const writeNewStyle = (elNewStyle: string, id: string) => {
+  const oldStyle = document.getElementById(id)
+  if (oldStyle) {
+    oldStyle.innerHTML = elNewStyle
+    return
+  }
+
   const style = document.createElement('style')
+  style.id = id
   style.innerText = elNewStyle
   document.head.appendChild(style)
 }
