@@ -8,6 +8,7 @@ declare module '@vue/runtime-core' {
     DarkColorTest: typeof import('./components/DarkColorTest.vue')['default']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElColorPicker: typeof import('element-plus/es')['ElColorPicker']
+    ElInput: typeof import('element-plus/es')['ElInput']
     HelloWorld: typeof import('./components/HelloWorld.vue')['default']
     LightColorTest: typeof import('./components/LightColorTest.vue')['default']
     ThemePicker: typeof import('./components/ThemePicker.vue')['default']

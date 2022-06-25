@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import cssColor from 'css-color-function'
+import rgbHex from 'rgb-hex'
 const elementDarkAi = ref([
   [51, 117, 185],
   [42, 89, 138],
@@ -14,6 +16,15 @@ const elementDark = ref([
   [29, 48, 67],
   [24, 34, 44],
 ])
+const rule = ref('color(rgba(102, 177, 255, 1) shade(90%))')
+const rgb = ref('')
+const result = ref('')
+const hex = () => {
+  // rgb.value = cssColor.convert(`${rule.value}`)
+  rgb.value = cssColor.convert(`${rule.value}`)
+  result.value = `#${rgbHex(rgb.value)}`
+}
+hex()
 </script>
 
 <template>
@@ -44,5 +55,17 @@ const elementDark = ref([
       </div>
     </div>
   </div>
+  <div>
+    <div>测试css-color-function</div>
+    <el-input v-model="rule" placeholder="请输入规则" @change="hex()" />
+    <div text-center>
+      <span inline-block w-10 h-10 :style="{ background: `${result}` }" />
+      <div>
+        {{ result }}
+        {{ rgb }}
+      </div>
+    </div>
+  </div>
+  <div>暂时没有头绪，源码里面的scss文件没太看懂，先取日间模式下最近似的shade混入吧</div>
 </template>
 
