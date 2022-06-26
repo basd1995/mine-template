@@ -1,3 +1,9 @@
+<!--
+ * @Author: basd1995
+ * @Date: 2022-06-20 23:03:54
+ * @LastEditors: basd1995
+ * @LastEditTime: 2022-06-26 23:59:34
+-->
 # Vue 3 + Vite + Element Plus + UnoCSS
 
 This template may help you quickly start a Vue 3 project.
@@ -12,6 +18,7 @@ This template may help you quickly start a Vue 3 project.
 - 🎨 [UnoCSS](https://github.com/antfu/unocss) - The instant on-demand atomic CSS engine.
 
 - 😃 Use icons from any icon sets in [Pure CSS](https://github.com/antfu/unocss/tree/main/packages/preset-icons)
+- 🍍 [State Management via Pinia](https://pinia.vuejs.org/)
 
 - 📚 [Element Plus](https://element-plus.org/)
 
