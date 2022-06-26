@@ -1,3 +1,9 @@
+/*
+ * @Author: basd1995
+ * @Date: 2022-06-20 23:03:54
+ * @LastEditors: basd1995
+ * @LastEditTime: 2022-06-26 22:22:23
+ */
 import path from 'path'
 import { defineConfig } from 'vite'
 import Vue from '@vitejs/plugin-vue'
@@ -27,6 +33,8 @@ export default defineConfig({
       dts: 'src/auto-import.d.ts',
       dirs: [
         'src/composables',
+        'src/store',
+        'src/utils',
       ],
       vueTemplate: true,
     }),

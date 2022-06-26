@@ -1,3 +1,10 @@
+/*
+ * @Author: basd1995
+ * @Date: 2022-06-26 00:54:11
+ * @LastEditors: basd1995
+ * @LastEditTime: 2022-06-26 22:37:44
+ */
+
 import type { JsonObject } from '~/types'
 
 // 主色表生成公式给cssColor.convert用
@@ -40,3 +47,6 @@ export const darkColorMap: JsonObject = {
   '#18222c': 'light-9',
   '#66b1ff': 'dark-2',
 }
+
+export const MINE_COLOR = 'main-color'
+export const DEFAULT_COLOR = '#409eff'

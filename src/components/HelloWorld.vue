@@ -1,15 +1,14 @@
+<!--
+ * @Author: basd1995
+ * @Date: 2022-06-24 11:55:46
+ * @LastEditors: basd1995
+ * @LastEditTime: 2022-06-26 22:54:38
+-->
 <script setup lang="ts">
-const count = ref(0)
-const add = () => {
-  count.value++
-}
 </script>
 
 <template>
   <h1>mine-template</h1>
-  <h1 @click="add()">
-    {{ count }}
-  </h1>
   <div>
     <el-button>Default</el-button>
     <el-button type="primary">

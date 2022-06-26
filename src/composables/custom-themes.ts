@@ -1,3 +1,9 @@
+/*
+ * @Author: basd1995
+ * @Date: 2022-06-24 13:31:04
+ * @LastEditors: basd1995
+ * @LastEditTime: 2022-06-26 23:10:42
+ */
 import cssColor from 'css-color-function'
 import lightCssVar from 'element-plus/dist/index.css'
 import darkCssVar from 'element-plus/theme-chalk/dark/css-vars.css'
@@ -52,6 +58,23 @@ const getOriginalStyle = (colorMap: JsonObject, cssVar: string) => {
 }
 
 /**
+ * 写入新样式插入到页面的style标签中
+ * @param elNewStyle  element-plus 的新样式
+ */
+const writeNewStyle = (elNewStyle: string, id: string) => {
+  const oldStyle = document.getElementById(id)
+  if (oldStyle) {
+    oldStyle.innerHTML = elNewStyle
+    return
+  }
+
+  const style = document.createElement('style')
+  style.id = id
+  style.innerText = elNewStyle
+  document.head.appendChild(style)
+}
+
+/**
  * 根据主色值，生成最新的样式表
  */
 export const generateNewStyle = (primaryColor: string) => {
@@ -76,23 +99,7 @@ export const generateNewStyle = (primaryColor: string) => {
       `$1${(darkColors as JsonObject)[key]}`,
     )
   })
-  return { lightStyle, darkStyle }
-}
-
-/**
- * 写入新样式插入到页面的style标签中
- * @param elNewStyle  element-plus 的新样式
- */
-export const writeNewStyle = (elNewStyle: string, id: string) => {
-  const oldStyle = document.getElementById(id)
-  if (oldStyle) {
-    oldStyle.innerHTML = elNewStyle
-    return
-  }
-
-  const style = document.createElement('style')
-  style.id = id
-  style.innerText = elNewStyle
-  document.head.appendChild(style)
+  writeNewStyle(lightStyle, 'light')
+  writeNewStyle(darkStyle, 'dark')
 }
 
