@@ -1,3 +1,9 @@
+<!--
+ * @Author: basd1995
+ * @Date: 2022-06-25 20:00:08
+ * @LastEditors: basd1995
+ * @LastEditTime: 2022-06-27 15:22:47
+-->
 <script setup lang="ts">
 import cssColor from 'css-color-function'
 import rgbHex from 'rgb-hex'
@@ -16,7 +22,7 @@ const elementDark = ref([
   [29, 48, 67],
   [24, 34, 44],
 ])
-const rule = ref('color(rgba(102, 177, 255, 1) shade(90%))')
+const rule = ref('color(#409eff blend(#141414 50%))')
 const rgb = ref('')
 const result = ref('')
 const hex = () => {
@@ -67,5 +73,7 @@ hex()
     </div>
   </div>
   <div>暂时没有头绪，源码里面的scss文件没太看懂，先取日间模式下最近似的shade混入吧</div>
+  <div>第二天又看了看源码dark文件的set-color-mix-level的，是混入的bg-color：#141414，不是shade中的black</div>
+  <div>看上面input的规则就行</div>
 </template>
 

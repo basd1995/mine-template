@@ -2,7 +2,7 @@
  * @Author: basd1995
  * @Date: 2022-06-26 00:54:11
  * @LastEditors: basd1995
- * @LastEditTime: 2022-06-26 22:37:44
+ * @LastEditTime: 2022-06-27 15:17:48
  */
 
 import type { JsonObject } from '~/types'
@@ -18,12 +18,13 @@ export const lightFormula: JsonObject = {
 }
 
 // 暗黑主色表生成公式给cssColor.convert用
+// element use $bg-color to mixin primary
 export const darkFormula: JsonObject = {
-  'light-3': 'color(primary shade(20%))',
-  'light-5': 'color(primary shade(35%))',
-  'light-7': 'color(primary shade(50%))',
-  'light-8': 'color(primary shade(60%))',
-  'light-9': 'color(primary shade(70%))',
+  'light-3': 'color(#141414 blend(primary 70%))',
+  'light-5': 'color(#141414 blend(primary 50%))',
+  'light-7': 'color(#141414 blend(primary 30%))',
+  'light-8': 'color(#141414 blend(primary 20%))',
+  'light-9': 'color(#141414 blend(primary 10%))',
   'dark-2': 'color(primary tint(20%))',
 }
 
