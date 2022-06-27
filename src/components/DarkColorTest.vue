@@ -2,7 +2,7 @@
  * @Author: basd1995
  * @Date: 2022-06-25 20:00:08
  * @LastEditors: basd1995
- * @LastEditTime: 2022-06-27 18:18:56
+ * @LastEditTime: 2022-06-27 20:04:42
 -->
 <script setup lang="ts">
 import cssColor from 'css-color-function'
@@ -76,6 +76,6 @@ hex()
   <div>第二天又看了看源码dark文件的set-color-mix-level的，是混入的bg-color：#141414，不是shade中的black</div>
   <div>看上面input的规则就行</div>
 
-  <div>测试github同步</div>
+  <div>测试github同步1</div>
 </template>
 
