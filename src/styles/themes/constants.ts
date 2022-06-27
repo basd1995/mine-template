@@ -2,7 +2,7 @@
  * @Author: basd1995
  * @Date: 2022-06-26 00:54:11
  * @LastEditors: basd1995
- * @LastEditTime: 2022-06-27 15:17:48
+ * @LastEditTime: 2022-06-27 17:26:05
  */
 
 import type { JsonObject } from '~/types'
@@ -18,7 +18,8 @@ export const lightFormula: JsonObject = {
 }
 
 // 暗黑主色表生成公式给cssColor.convert用
-// element use $bg-color to mixin primary
+// element plus 源码packages/theme-chalk/src/dark/var.scss
+// 69行 @include set-color-mix-level($type, $i, 'light', map.get($bg-color, ''));
 export const darkFormula: JsonObject = {
   'light-3': 'color(#141414 blend(primary 70%))',
   'light-5': 'color(#141414 blend(primary 50%))',
