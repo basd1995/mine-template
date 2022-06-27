@@ -2,7 +2,7 @@
  * @Author: basd1995
  * @Date: 2022-06-24 11:55:46
  * @LastEditors: basd1995
- * @LastEditTime: 2022-06-26 22:54:38
+ * @LastEditTime: 2022-06-27 18:09:59
 -->
 <script setup lang="ts">
 </script>
@@ -36,7 +36,7 @@
     <div i="carbon-sun dark:carbon-moon" text-gray-500 />
   </div>
   <p mt-10>
-    动态切换默认主题色，后续补一下本地缓存
+    动态切换默认主题色，后续补一下本地缓存(Pinia已经添加)
   </p>
   <div mt-5>
     <ThemePicker />
