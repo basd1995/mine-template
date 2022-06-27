@@ -2,7 +2,7 @@
  * @Author: basd1995
  * @Date: 2022-06-20 23:03:54
  * @LastEditors: basd1995
- * @LastEditTime: 2022-06-26 23:59:34
+ * @LastEditTime: 2022-06-27 18:00:10
 -->
 # Vue 3 + Vite + Element Plus + UnoCSS
 
@@ -25,6 +25,8 @@ This template may help you quickly start a Vue 3 project.
 - 🔥 Use the [new `<script setup>` style](https://github.com/vuejs/rfcs/pull/227)
 
 - 🦾 TypeScript, of course
+  
+- 🌓 Dark Mode
 
 ## Try it now!
 
