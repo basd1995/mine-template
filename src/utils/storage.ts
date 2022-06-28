@@ -2,14 +2,14 @@
  * @Author: basd1995
  * @Date: 2022-06-26 22:03:10
  * @LastEditors: basd1995
- * @LastEditTime: 2022-06-27 17:58:32
+ * @LastEditTime: 2022-06-28 23:52:54
  * TODO: 看看有没有其他持久话替代插件
  */
 
 /**
  * 存储数据
  */
-export const setItem = (key: string, value: string | object) => {
+export const setItem = (key: string, value: string | object | Boolean) => {
   // 将数组、对象类型的数据转化为 JSON 字符串进行存储
   if (typeof value === 'object')
     value = JSON.stringify(value)

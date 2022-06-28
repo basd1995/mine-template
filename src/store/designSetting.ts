@@ -2,7 +2,7 @@
  * @Author: basd1995
  * @Date: 2022-06-26 15:45:07
  * @LastEditors: basd1995
- * @LastEditTime: 2022-06-28 17:27:04
+ * @LastEditTime: 2022-06-28 23:53:03
  */
 import { defineStore } from 'pinia'
 import { DEFAULT_COLOR, MINE_COLOR } from '~/styles/themes/constants'
@@ -10,7 +10,7 @@ import { DEFAULT_COLOR, MINE_COLOR } from '~/styles/themes/constants'
 export const designSettings = defineStore('designSettings', {
   state: () => ({
     primaryColor: getItem(MINE_COLOR) || DEFAULT_COLOR,
-    isCollapse: getItem(IS_COLLAPSE) === '0' || DEFAULT_COLLAPSE,
+    isCollapse: getItem(IS_COLLAPSE),
   }),
   getters: {
     getPrimaryColor: state => state.primaryColor,
@@ -25,7 +25,7 @@ export const designSettings = defineStore('designSettings', {
       generateNewStyle(this.primaryColor)
     },
     updateIsCollapse(flag: boolean) {
-      setItem(IS_COLLAPSE, flag ? '0' : '1')
+      setItem(IS_COLLAPSE, flag)
       this.isCollapse = flag
     },
   },

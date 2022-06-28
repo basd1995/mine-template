@@ -3,6 +3,9 @@ const setting = designSettings()
 </script>
 
 <template>
+  <div h-60px bg-red-400>
+    logo
+  </div>
   <el-menu
     default-active="2"
     class="menu-vertical"
@@ -44,7 +47,10 @@ const setting = designSettings()
 </template>
 
 <style lang="scss" scoped>
-.menu-vertical:not(.el-menu--collapse) {
+.menu-vertical {
+  border-right: 0;
+ &:not(.el-menu--collapse) {
   width: 200px;
+ }
 }
 </style>
