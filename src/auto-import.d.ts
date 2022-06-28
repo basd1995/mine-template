@@ -8,7 +8,9 @@ declare global {
   const $ref: typeof import('vue/macros')['$ref']
   const $shallowRef: typeof import('vue/macros')['$shallowRef']
   const $toRef: typeof import('vue/macros')['$toRef']
+  const DEFAULT_COLLAPSE: typeof import('./composables/constants')['DEFAULT_COLLAPSE']
   const EffectScope: typeof import('vue')['EffectScope']
+  const IS_COLLAPSE: typeof import('./composables/constants')['IS_COLLAPSE']
   const asyncComputed: typeof import('@vueuse/core')['asyncComputed']
   const autoResetRef: typeof import('@vueuse/core')['autoResetRef']
   const changeThemes: typeof import('./composables/custom-themes')['changeThemes']
@@ -268,7 +270,9 @@ declare module 'vue' {
     readonly $ref: UnwrapRef<typeof import('vue/macros')['$ref']>
     readonly $shallowRef: UnwrapRef<typeof import('vue/macros')['$shallowRef']>
     readonly $toRef: UnwrapRef<typeof import('vue/macros')['$toRef']>
+    readonly DEFAULT_COLLAPSE: UnwrapRef<typeof import('./composables/constants')['DEFAULT_COLLAPSE']>
     readonly EffectScope: UnwrapRef<typeof import('vue')['EffectScope']>
+    readonly IS_COLLAPSE: UnwrapRef<typeof import('./composables/constants')['IS_COLLAPSE']>
     readonly asyncComputed: UnwrapRef<typeof import('@vueuse/core')['asyncComputed']>
     readonly autoResetRef: UnwrapRef<typeof import('@vueuse/core')['autoResetRef']>
     readonly changeThemes: UnwrapRef<typeof import('./composables/custom-themes')['changeThemes']>

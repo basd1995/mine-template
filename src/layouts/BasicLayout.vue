@@ -2,25 +2,20 @@
  * @Author: basd1995
  * @Date: 2022-06-27 21:29:06
  * @LastEditors: basd1995
- * @LastEditTime: 2022-06-28 00:32:06
+ * @LastEditTime: 2022-06-28 14:57:25
 -->
+<script setup lang="ts">
+
+</script>
+
 <template>
-  <el-container>
-    <el-aside width="200px" bg-gray-500>
-      Aside
-    </el-aside>
+  <el-container w-full h-full>
+    <div bg-red-500>
+      <Menu />
+    </div>
     <el-container>
       <el-header bg-blue-300>
-        Header
-        <button btn @click="goPage('/workplace')">
-          Workplace页面
-        </button>
-        <button btn @click="goPage('/user')">
-          User页面
-        </button>
-        <button btn @click="goPage('/hello-world')">
-          HelloWorld页面
-        </button>
+        <Header />
       </el-header>
       <el-main>
         <div>Main</div>
