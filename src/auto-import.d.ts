@@ -91,6 +91,7 @@ declare global {
   const refWithControl: typeof import('@vueuse/core')['refWithControl']
   const removeAllItem: typeof import('./utils/storage')['removeAllItem']
   const removeItem: typeof import('./utils/storage')['removeItem']
+  const request: typeof import('./utils/request')['default']
   const resolveComponent: typeof import('vue')['resolveComponent']
   const setItem: typeof import('./utils/storage')['setItem']
   const shallowReactive: typeof import('vue')['shallowReactive']
@@ -353,6 +354,7 @@ declare module 'vue' {
     readonly refWithControl: UnwrapRef<typeof import('@vueuse/core')['refWithControl']>
     readonly removeAllItem: UnwrapRef<typeof import('./utils/storage')['removeAllItem']>
     readonly removeItem: UnwrapRef<typeof import('./utils/storage')['removeItem']>
+    readonly request: UnwrapRef<typeof import('./utils/request')['default']>
     readonly resolveComponent: UnwrapRef<typeof import('vue')['resolveComponent']>
     readonly setItem: UnwrapRef<typeof import('./utils/storage')['setItem']>
     readonly shallowReactive: UnwrapRef<typeof import('vue')['shallowReactive']>

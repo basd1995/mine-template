@@ -1,5 +1,12 @@
 <script setup lang="ts">
+import { getMenuList } from '~/apis/menuManagement'
+
 const setting = designSettings()
+const init = async () => {
+  const res = await getMenuList()
+  console.log('res', res)
+}
+init()
 </script>
 
 <template>
