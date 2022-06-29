@@ -1,10 +1,9 @@
 <script setup lang="ts">
-import { getMenuList } from '~/apis/menuManagement'
+import { getUserInfo } from '~/apis/userManagement'
 
 const setting = designSettings()
 const init = async () => {
-  const res = await getMenuList()
-  console.log('res', res)
+  await getUserInfo()
 }
 init()
 </script>
