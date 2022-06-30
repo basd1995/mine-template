@@ -8,7 +8,8 @@ const changeCollapse = () => {
 <template>
   <div flex="~" items-center w-full h-full>
     <el-icon :size="24" color="#ffffff" @click="changeCollapse">
-      <div i-ep-fold />
+      <div v-if="!setting.getIsCollapse" i-ep-fold />
+      <div v-else i-ep-expand />
     </el-icon>
     <button btn @click="goPage('/workplace')">
       Workplace页面
