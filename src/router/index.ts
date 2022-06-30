@@ -2,7 +2,7 @@
  * @Author: basd1995
  * @Date: 2022-06-27 22:54:47
  * @LastEditors: basd1995
- * @LastEditTime: 2022-06-28 00:29:32
+ * @LastEditTime: 2022-06-30 21:55:21
  */
 import {
   createRouter,
@@ -33,6 +33,10 @@ export const publicRoutes = [
         component: () => import('~/components/HelloWorld.vue'),
       },
     ],
+  },
+  {
+    path: '/login',
+    component: () => import('~/page/login/Login.vue'),
   },
 ]
 

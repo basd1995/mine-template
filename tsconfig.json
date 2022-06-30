@@ -16,7 +16,8 @@
     "forceConsistentCasingInFileNames": true,
     "types": [
       "vite/client",
-      "vue/ref-macros"
+      "vue/ref-macros",
+      "element-plus/global"
     ],
     "paths": {
       "~/*": ["src/*"]
