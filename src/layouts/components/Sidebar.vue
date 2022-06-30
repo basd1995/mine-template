@@ -1,62 +1,62 @@
 <script setup lang="ts">
+import SubMenuItem from './menu/SubMenuItem.vue'
 import { getUserInfo } from '~/apis/userManagement'
 
 const setting = designSettings()
-const init = async () => {
-  await getUserInfo()
+const menu = ref<any>([])
+
+/**
+ * 数组转树形结构
+ * @param list 源数组
+ * @param tree 树
+ * @param parentId 父ID
+ */
+const listToTree = (list: any, tree: any, parentId: any) => {
+  list.forEach((item: any) => {
+    // 判断是否为父级菜单
+    if (item.pid === parentId) {
+      const child = {
+        ...item,
+        key: item.key || item.name,
+        children: [],
+      }
+      // 迭代 list， 找到当前菜单相符合的所有子菜单
+      listToTree(list, child.children, item.id)
+      // 删掉不存在 children 值的属性
+      if (child.children.length <= 0)
+        delete child.children
+      // 加入到树中
+      tree.push(child)
+    }
+  })
 }
-init()
+
+const init = async () => {
+  const res = await getUserInfo()
+  const resNav = res.data.menus
+  const childrenNav: any = []
+  //      后端数据, 根级树数组,  根级 PID
+  listToTree(resNav, childrenNav, '0')
+  menu.value = childrenNav
+  console.warn('childrenNav', childrenNav)
+}
+onMounted(() => {
+  init()
+})
 </script>
 
 <template>
-  <div h-60px bg-red-400>
-    logo
-  </div>
-  <el-menu
-    default-active="2"
-    class="menu-vertical"
-    :collapse="setting.getIsCollapse"
-  >
-    <el-sub-menu index="1">
-      <template #title>
-        <el-icon><div i-ep-message /></el-icon>
-        <span>Navigator One</span>
-      </template>
-      <el-sub-menu index="1-4">
-        <template #title>
-          <span>item four</span>
-        </template>
-        <el-menu-item index="1-4-1">
-          item one
-        </el-menu-item>
-      </el-sub-menu>
-    </el-sub-menu>
-    <el-menu-item index="2">
-      <el-icon><div i-ep-menu /></el-icon>
-      <template #title>
-        Navigator Two
-      </template>
-    </el-menu-item>
-    <el-menu-item index="3" disabled>
-      <el-icon><div i-ep-document /></el-icon>
-      <template #title>
-        Navigator Three
-      </template>
-    </el-menu-item>
-    <el-menu-item index="4">
-      <el-icon><div i-ep-setting /></el-icon>
-      <template #title>
-        Navigator Four
-      </template>
-    </el-menu-item>
+  <el-menu class="menu-vertical" :collapse="setting.getIsCollapse">
+    <SubMenuItem v-for="item of menu" :key="item.id" :menu-item="item" />
   </el-menu>
 </template>
 
 <style lang="scss" scoped>
 .menu-vertical {
   border-right: 0;
- &:not(.el-menu--collapse) {
-  width: 200px;
- }
+
+  &:not(.el-menu--collapse) {
+    width: 200px;
+  }
 }
 </style>
