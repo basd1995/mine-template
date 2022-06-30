@@ -29,7 +29,6 @@ const err = (error: any) => {
  */
 request.interceptors.response.use((response) => {
   return new Promise((resolve, reject) => {
-    console.warn('response interceptor', response.data)
     const { success, message } = response.data
     if (success)
       resolve(response.data)
