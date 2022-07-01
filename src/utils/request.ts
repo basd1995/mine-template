@@ -1,7 +1,8 @@
 import axios from 'axios'
 
 const request = axios.create({
-  baseURL: 'https://www.fastmock.site/mock/4d620904cf6297b2686e07189f333224/api',
+  // baseURL: 'https://www.fastmock.site/mock/4d620904cf6297b2686e07189f333224/api',
+  baseURL: 'http://10.0.3.236:3001',
 })
 
 const err = (error: any) => {
@@ -9,16 +10,16 @@ const err = (error: any) => {
     const data = error.response.data
 
     if (error.response.status === 403)
-      console.warn('服务器403啦，要重新登录！')
+      ElMessage('服务器403啦，要重新登录！')
 
     if (error.response.status === 404)
-      console.warn('接口不存在！')
+      ElMessage.error('接口不存在！')
 
     if (error.response.status === 500)
-      console.warn('接口500！')
+      ElMessage.error('接口500！')
 
     if (error.response.status === 401 && !(data.result && data.result.isLogin))
-      console.warn('接口403无权限！')
+      ElMessage.error('接口403无权限！')
   }
   return Promise.reject(error)
 }
@@ -29,12 +30,15 @@ const err = (error: any) => {
  */
 request.interceptors.response.use((response) => {
   return new Promise((resolve, reject) => {
-    const { success, message } = response.data
-    if (success)
+    const { success, msg } = response.data
+    if (success) {
       resolve(response.data)
+    }
 
-    else
-      reject(message)
+    else {
+      ElMessage.error('接口403无权限！')
+      reject(msg)
+    }
   })
 }, err)
 

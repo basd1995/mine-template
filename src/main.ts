@@ -1,9 +1,9 @@
 /*
- * @Author: basd1995
- * @Date: 2022-06-20 23:03:54
+* @Author: basd1995
+* @Date: 2022-06-20 23:03:54
  * @LastEditors: basd1995
- * @LastEditTime: 2022-06-27 23:38:02
- */
+ * @LastEditTime: 2022-07-02 00:21:33
+*/
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import App from './App.vue'
@@ -14,7 +14,6 @@ import 'uno.css'
 
 const pinia = createPinia()
 const app = createApp(App)
-
 app.use(pinia)
 app.use(router)
 app.mount('#app')

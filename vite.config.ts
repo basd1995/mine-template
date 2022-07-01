@@ -2,7 +2,7 @@
  * @Author: basd1995
  * @Date: 2022-06-20 23:03:54
  * @LastEditors: basd1995
- * @LastEditTime: 2022-06-28 14:45:30
+ * @LastEditTime: 2022-07-01 21:40:23
  */
 import path from 'path'
 import { defineConfig } from 'vite'
@@ -32,15 +32,15 @@ export default defineConfig({
         '@vueuse/core',
         'vue-router',
       ],
-      // 自动导入 Element Plus 相关函数，如：ElMessage, ElMessageBox... (带样式)
-      resolvers: [
-        ElementPlusResolver(),
-      ],
       dts: 'src/auto-import.d.ts',
       dirs: [
         'src/composables',
         'src/store',
         'src/utils',
+      ],
+      // 自动导入 Element Plus 相关函数，如：ElMessage, ElMessageBox... (带样式)
+      resolvers: [
+        ElementPlusResolver(),
       ],
       vueTemplate: true,
     }),

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { FormInstance, FormRules } from 'element-plus'
+import { login } from '../../apis/loginManagement'
 const formRef = ref<FormInstance>()
 const form = reactive({
   username: '',
@@ -28,12 +29,10 @@ const handleClick = () => { }
 const submitForm = async (formEl: FormInstance | undefined) => {
   if (!formEl)
     return
-  await formEl.validate((valid, fields) => {
-    if (valid)
-      ElMessage.success('提交成功')
-
-    else
-      ElMessage.error('提交失败')
+  await formEl.validate(async (valid, fields) => {
+    if (valid) {
+      const res = await login({ ...form })
+    }
   })
 }
 </script>
