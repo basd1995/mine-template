@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import SubMenuItem from './menu/SubMenuItem.vue'
-import { getUserInfo } from '~/apis/userManagement'
+// import { getUserInfo } from '~/apis/userManagement'
 
 const setting = designSettings()
 const menu = ref<any>([])
