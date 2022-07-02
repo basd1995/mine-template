@@ -24,6 +24,15 @@ const err = (error: any) => {
   return Promise.reject(error)
 }
 
+// request interceptor
+request.interceptors.request.use((config: any) => {
+  const token = vls.get(ACCESS_TOKEN)
+  if (token)
+    config.headers.Authorization = `Bearer ${token}`
+
+  return config
+}, err)
+
 /**
  * response interceptor
  * 所有请求统一返回

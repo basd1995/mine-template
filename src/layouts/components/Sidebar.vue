@@ -31,17 +31,17 @@ const listToTree = (list: any, tree: any, parentId: any) => {
   })
 }
 
-const init = async () => {
-  const res = await getUserInfo()
-  const resNav = res.data.menus
-  const childrenNav: any = []
-  //      后端数据, 根级树数组,  根级 PID
-  listToTree(resNav, childrenNav, '0')
-  menu.value = childrenNav
-  console.warn('childrenNav', childrenNav)
-}
+// const init = async () => {
+//   const res = await getUserInfo()
+//   const resNav = res.data.menus
+//   const childrenNav: any = []
+//   //      后端数据, 根级树数组,  根级 PID
+//   listToTree(resNav, childrenNav, '0')
+//   menu.value = childrenNav
+//   console.warn('childrenNav', childrenNav)
+// }
 onMounted(() => {
-  init()
+  // init()
 })
 </script>
 

@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia'
 import { login } from '~/apis/loginManagement'
+import { getUserInfo } from '~/apis/userManagement'
 
 export const userStore = defineStore('userStore', {
   state: () => ({
@@ -9,7 +10,7 @@ export const userStore = defineStore('userStore', {
     avatar: '',
     buttons: [], // 按钮权限
     admintype: '', // 是否是超管
-    roles: [],
+    roles: '',
     info: {},
   }),
   getters: {
@@ -28,6 +29,16 @@ export const userStore = defineStore('userStore', {
       const res = await login(parameter)
       vls.set(ACCESS_TOKEN, res.data, 7 * 24 * 60 * 60 * 1000)
       this.token = res.data
+    },
+    // 获取用户信息
+    async getUserInfo() {
+      const res = await getUserInfo()
+      this.admintype = res.data.admintype
+      this.roles = '1'
+      this.buttons = res.data.buttons
+      this.info = res.data.info
+      this.name = res.data.name
+      console.warn(res)
     },
   },
 })

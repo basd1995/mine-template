@@ -2,8 +2,9 @@
  * @Author: basd1995
  * @Date: 2022-06-27 22:54:47
  * @LastEditors: basd1995
- * @LastEditTime: 2022-06-30 21:55:21
+ * @LastEditTime: 2022-07-02 22:18:45
  */
+import type { Router } from 'vue-router'
 import {
   createRouter,
   createWebHashHistory,
@@ -22,25 +23,29 @@ export const publicRoutes = [
     children: [
       {
         path: '/workplace',
+        name: 'workplace',
         component: () => import('~/page/Home.vue'),
       },
       {
         path: '/user',
+        name: 'user',
         component: () => import('~/page/User.vue'),
       },
       {
         path: '/hello-world',
+        name: 'hello-world',
         component: () => import('~/components/HelloWorld.vue'),
       },
     ],
   },
   {
     path: '/login',
+    name: 'login',
     component: () => import('~/page/login/Login.vue'),
   },
 ]
 
-const router = createRouter({
+const router: Router = createRouter({
   history:
     process.env.NODE_ENV === 'production'
       ? createWebHistory()
