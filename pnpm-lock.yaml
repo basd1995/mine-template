@@ -5,6 +5,7 @@ specifiers:
   '@iconify-json/carbon': ^1.1.5
   '@iconify-json/ep': ^1.1.6
   '@types/sm-crypto': ^0.3.0
+  '@types/vue-ls': ^3.2.3
   '@vitejs/plugin-vue': ^2.3.3
   '@vueuse/core': ^8.7.5
   axios: ^0.27.2
@@ -44,6 +45,7 @@ devDependencies:
   '@iconify-json/carbon': registry.npmmirror.com/@iconify-json/carbon/1.1.5
   '@iconify-json/ep': registry.npmmirror.com/@iconify-json/ep/1.1.6
   '@types/sm-crypto': registry.npmmirror.com/@types/sm-crypto/0.3.0
+  '@types/vue-ls': registry.npmmirror.com/@types/vue-ls/3.2.3
   '@vitejs/plugin-vue': registry.npmmirror.com/@vitejs/plugin-vue/2.3.3_vite@2.9.13+vue@3.2.37
   eslint: registry.npmmirror.com/eslint/8.18.0
   sass: registry.npmmirror.com/sass/1.53.0
@@ -426,6 +428,14 @@ packages:
     resolution: {integrity: sha512-PBjIUxZHOuj0R15/xuwJYjFi+KZdNFrehocChv4g5hu6aFroHue8m0lBP0POdK2nKzbw0cgV1mws8+V/JAcEkQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/unist/-/unist-2.0.6.tgz}
     name: '@types/unist'
     version: 2.0.6
+    dev: true
+
+  registry.npmmirror.com/@types/vue-ls/3.2.3:
+    resolution: {integrity: sha512-6vsMUwFEZ86nfKyNw89XMIFgY/Flnnfe7FhLp0wJeqcOa1EVx2jNOp2gPaqGa6yCluX9nBt/5nmiUzNldVii7w==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/vue-ls/-/vue-ls-3.2.3.tgz}
+    name: '@types/vue-ls'
+    version: 3.2.3
+    dependencies:
+      vue: registry.npmmirror.com/vue/2.7.0
     dev: true
 
   registry.npmmirror.com/@types/web-bluetooth/0.0.14:
@@ -893,6 +903,16 @@ packages:
     dependencies:
       '@vue/compiler-core': registry.npmmirror.com/@vue/compiler-core/3.2.37
       '@vue/shared': registry.npmmirror.com/@vue/shared/3.2.37
+
+  registry.npmmirror.com/@vue/compiler-sfc/2.7.0:
+    resolution: {integrity: sha512-hPOI15RsXO1G8aK6FNF93ld9C/D4e/uAJBE59K8NnL8giuKqeVksvamgu4jKhCJ9f9bbUpj5BuSV3sufIx2hmw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@vue/compiler-sfc/-/compiler-sfc-2.7.0.tgz}
+    name: '@vue/compiler-sfc'
+    version: 2.7.0
+    dependencies:
+      '@babel/parser': registry.npmmirror.com/@babel/parser/7.18.5
+      postcss: registry.npmmirror.com/postcss/8.4.14
+      source-map: registry.npmmirror.com/source-map/0.6.1
+    dev: true
 
   registry.npmmirror.com/@vue/compiler-sfc/3.2.37:
     resolution: {integrity: sha512-+7i/2+9LYlpqDv+KTtWhOZH+pa8/HnX/905MdVmAcI/mPQOBwkHHIzrsEsucyOIZQYMkXUiTkmZq5am/NyXKkg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@vue/compiler-sfc/-/compiler-sfc-3.2.37.tgz}
@@ -1445,6 +1465,12 @@ packages:
     name: csstype
     version: 2.6.20
     dev: false
+
+  registry.npmmirror.com/csstype/3.1.0:
+    resolution: {integrity: sha512-uX1KG+x9h5hIJsaKR9xHUeUraxf8IODOwq9JLNPq6BwB04a/xgpq3rcx47l5BZu5zBPlgD342tdke3Hom/nJRA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/csstype/-/csstype-3.1.0.tgz}
+    name: csstype
+    version: 3.1.0
+    dev: true
 
   registry.npmmirror.com/dayjs/1.11.3:
     resolution: {integrity: sha512-xxwlswWOlGhzgQ4TKzASQkUhqERI3egRNqgV4ScR8wlANA/A9tZ7miXa44vTTKEq5l7vWoL5G57bG3zA+Kow0A==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/dayjs/-/dayjs-1.11.3.tgz}
@@ -4657,6 +4683,15 @@ packages:
     dependencies:
       '@volar/vue-typescript': registry.npmmirror.com/@volar/vue-typescript/0.34.17
       typescript: registry.npmmirror.com/typescript/4.7.4
+    dev: true
+
+  registry.npmmirror.com/vue/2.7.0:
+    resolution: {integrity: sha512-su25f1hocH+QNkVEqk+Oj7B+mkDIWU70l0YY7nYSJFEs3Z64njXxo65RUXnWH46ooEhKmEWyLdW6HcYn8coNrg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/vue/-/vue-2.7.0.tgz}
+    name: vue
+    version: 2.7.0
+    dependencies:
+      '@vue/compiler-sfc': registry.npmmirror.com/@vue/compiler-sfc/2.7.0
+      csstype: registry.npmmirror.com/csstype/3.1.0
     dev: true
 
   registry.npmmirror.com/vue/3.2.37:

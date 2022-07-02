@@ -2,7 +2,7 @@
  * @Author: basd1995
  * @Date: 2022-06-20 23:03:54
  * @LastEditors: basd1995
- * @LastEditTime: 2022-07-01 21:40:23
+ * @LastEditTime: 2022-07-02 21:41:18
  */
 import path from 'path'
 import { defineConfig } from 'vite'
@@ -37,6 +37,7 @@ export default defineConfig({
         'src/composables',
         'src/store',
         'src/utils',
+        'src/router',
       ],
       // 自动导入 Element Plus 相关函数，如：ElMessage, ElMessageBox... (带样式)
       resolvers: [

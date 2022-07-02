@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { FormInstance, FormRules } from 'element-plus'
-import { login } from '../../apis/loginManagement'
+const _userStore = userStore()
 const formRef = ref<FormInstance>()
 const form = reactive({
   username: '',
@@ -8,30 +8,32 @@ const form = reactive({
 })
 const rules = reactive<FormRules>({
   username: [
-    {
-      required: true,
-      message: '请输入账号',
-      trigger: 'blur',
-    },
+    { required: true, message: '请输入账号', trigger: 'blur' },
   ],
   password: [
-    {
-      required: true,
-      message: '请输入密码',
-      trigger: 'blur',
-    },
+    { required: true, message: '请输入密码', trigger: 'blur' },
   ],
 })
 const activeName = ref('tab1')
 
+// TODO: 登录切换
 const handleClick = () => { }
 
+const loading = ref(false)
 const submitForm = async (formEl: FormInstance | undefined) => {
   if (!formEl)
     return
   await formEl.validate(async (valid, fields) => {
     if (valid) {
-      const res = await login({ ...form })
+      loading.value = true
+      try {
+        await _userStore.login({ ...form })
+        loading.value = false
+        router.push('/')
+      }
+      catch (e) {
+        loading.value = false
+      }
     }
   })
 }
@@ -72,9 +74,12 @@ const submitForm = async (formEl: FormInstance | undefined) => {
           暂无
         </el-tab-pane> -->
       </el-tabs>
-
+      <!-- TODO: 记住密码，忘记密码 -->
       <el-form-item>
-        <el-button type="primary" w-full @click="submitForm(formRef)">
+        <el-button
+          type="primary" w-full :loading="loading"
+          @click="submitForm(formRef)"
+        >
           确定
         </el-button>
       </el-form-item>

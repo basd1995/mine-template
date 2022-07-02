@@ -2,14 +2,13 @@
  * @Author: basd1995
  * @Date: 2022-06-26 22:03:10
  * @LastEditors: basd1995
- * @LastEditTime: 2022-07-02 00:23:55
+ * @LastEditTime: 2022-07-02 00:27:21
  * TODO: 看看有没有其他持久话替代插件
  */
 
 /**
  * 存储数据
  */
-import VueStorage from 'vue-ls'
 export const setItem = (key: string, value: string | object | Boolean) => {
   // 将数组、对象类型的数据转化为 JSON 字符串进行存储
   if (typeof value === 'object')
@@ -44,10 +43,3 @@ export const removeItem = (key: string) => {
 export const removeAllItem = () => {
   window.localStorage.clear()
 }
-const options = {
-  namespace: 'song_', // key prefix
-  name: 'ls', // name variable Vue.[ls] or this.[$ls],
-  storage: 'local', // storage name session, local, memory
-}
-const { ls } = VueStorage.useStorage(options)
-export const vls = ls
