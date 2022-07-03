@@ -8,3 +8,7 @@ export const login = (parameter: any) => {
 
   return request.post('/login', parameter)
 }
+
+export const logout = () => {
+  return request.get('/logout')
+}

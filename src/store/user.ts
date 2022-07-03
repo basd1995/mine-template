@@ -40,5 +40,13 @@ export const userStore = defineStore('userStore', {
       this.name = res.data.name
       console.warn(res)
     },
+    // 登出
+    async logout() {
+      this.token = ''
+      this.buttons = []
+      this.admintype = ''
+      this.roles = ''
+      vls.remove(ACCESS_TOKEN)
+    },
   },
 })

@@ -16,7 +16,7 @@ router.beforeEach(async (to, from, next) => {
       NProgress.done()
     }
     else {
-      if (_userStore.roles.length === 0) {
+      if (_userStore.roles) {
         try {
           await _userStore.getUserInfo()
           // 请求带有 redirect 重定向时，登录自动重定向到该地址
@@ -33,7 +33,8 @@ router.beforeEach(async (to, from, next) => {
         }
         catch (e) {
           console.warn(e)
-          router.push('/login')
+          await _userStore.logout()
+          next({ path: '/login', query: { redirect: to.fullPath } })
         }
       }
       else { next() }
