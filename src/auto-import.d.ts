@@ -9,9 +9,11 @@ declare global {
   const $shallowRef: typeof import('vue/macros')['$shallowRef']
   const $toRef: typeof import('vue/macros')['$toRef']
   const ACCESS_TOKEN: typeof import('./composables/constants')['ACCESS_TOKEN']
+  const ALL_APPS_MENU: typeof import('./composables/constants')['ALL_APPS_MENU']
   const DEFAULT_COLLAPSE: typeof import('./composables/constants')['DEFAULT_COLLAPSE']
   const EffectScope: typeof import('vue')['EffectScope']
   const ElMessage: typeof import('element-plus/es')['ElMessage']
+  const ElMessageBox: typeof import('element-plus/es')['ElMessageBox']
   const IS_COLLAPSE: typeof import('./composables/constants')['IS_COLLAPSE']
   const asyncComputed: typeof import('@vueuse/core')['asyncComputed']
   const autoResetRef: typeof import('@vueuse/core')['autoResetRef']
@@ -278,9 +280,11 @@ declare module 'vue' {
     readonly $shallowRef: UnwrapRef<typeof import('vue/macros')['$shallowRef']>
     readonly $toRef: UnwrapRef<typeof import('vue/macros')['$toRef']>
     readonly ACCESS_TOKEN: UnwrapRef<typeof import('./composables/constants')['ACCESS_TOKEN']>
+    readonly ALL_APPS_MENU: UnwrapRef<typeof import('./composables/constants')['ALL_APPS_MENU']>
     readonly DEFAULT_COLLAPSE: UnwrapRef<typeof import('./composables/constants')['DEFAULT_COLLAPSE']>
     readonly EffectScope: UnwrapRef<typeof import('vue')['EffectScope']>
     readonly ElMessage: UnwrapRef<typeof import('element-plus/es')['ElMessage']>
+    readonly ElMessageBox: UnwrapRef<typeof import('element-plus/es')['ElMessageBox']>
     readonly IS_COLLAPSE: UnwrapRef<typeof import('./composables/constants')['IS_COLLAPSE']>
     readonly asyncComputed: UnwrapRef<typeof import('@vueuse/core')['asyncComputed']>
     readonly autoResetRef: UnwrapRef<typeof import('@vueuse/core')['autoResetRef']>

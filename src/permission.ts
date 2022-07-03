@@ -1,4 +1,5 @@
 import NProgress from 'nprogress' // progress bar
+import type { Applocation } from './types'
 import router from './router'
 
 NProgress.configure({ showSpinner: false })
@@ -16,9 +17,49 @@ router.beforeEach(async (to, from, next) => {
       NProgress.done()
     }
     else {
-      if (_userStore.roles) {
+      if (_userStore.roles === '') {
         try {
-          await _userStore.getUserInfo()
+          const res = await _userStore.getUserInfo()
+          if (res.menus.length < 1) {
+            ElMessageBox.confirm(
+              '无菜单权限，请联系管理员',
+              '提示：', {
+                confirmButtonText: '确定',
+                callback: async () => {
+                  await _userStore.logout()
+                  window.location.reload()
+                },
+              })
+            console.warn(res)
+            return
+          }
+          const all_app_menu = vls.get(ALL_APPS_MENU)
+          if (all_app_menu === null) {
+            const applocation: Applocation[] = []
+            res.apps.forEach((item: Applocation) => {
+              /**
+               * @code: 应用编码
+               * @name: 应用名称
+               * @active: 是否激活
+               * @menu: 应用菜单
+               */
+              const apps: Applocation = { code: '', name: '', active: false, menu: [] }
+              if (item.active) {
+                apps.code = item.code
+                apps.name = item.name
+                apps.active = item.active
+                apps.menu = res.menus
+              }
+              else {
+                apps.code = item.code
+                apps.name = item.name
+                apps.active = item.active
+                apps.menu = []
+              }
+              applocation.push(apps)
+            })
+            vls.set(ALL_APPS_MENU, applocation, 7 * 24 * 60 * 60 * 1000)
+          }
           // 请求带有 redirect 重定向时，登录自动重定向到该地址
           const redirect = decodeURIComponent(from.query.redirect as string || to.path)
           if (to.path === redirect) {
@@ -33,7 +74,7 @@ router.beforeEach(async (to, from, next) => {
         }
         catch (e) {
           console.warn(e)
-          await _userStore.logout()
+          _userStore.clearInfo()
           next({ path: '/login', query: { redirect: to.fullPath } })
         }
       }

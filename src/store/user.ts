@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { login } from '~/apis/loginManagement'
+import { login, logout } from '~/apis/loginManagement'
 import { getUserInfo } from '~/apis/userManagement'
 
 export const userStore = defineStore('userStore', {
@@ -39,13 +39,21 @@ export const userStore = defineStore('userStore', {
       this.info = res.data.info
       this.name = res.data.name
       console.warn(res)
+      return res.data
     },
     // 登出
     async logout() {
-      this.token = ''
-      this.buttons = []
+      await logout()
+      this.clearInfo()
+      setTimeout(() => {
+        window.location.reload()
+      }, 16)
+    },
+    clearInfo() {
       this.admintype = ''
       this.roles = ''
+      this.buttons = []
+      this.info = {}
       vls.remove(ACCESS_TOKEN)
     },
   },

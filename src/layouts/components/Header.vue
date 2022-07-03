@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const setting = designSettings()
+const _userStore = userStore()
 const changeCollapse = () => {
   setting.updateIsCollapse(!setting.getIsCollapse)
 }
@@ -19,6 +20,9 @@ const changeCollapse = () => {
     </button>
     <button btn @click="goPage('/hello-world')">
       HelloWorld页面
+    </button>
+    <button btn @click="_userStore.logout">
+      登出
     </button>
   </div>
 </template>
