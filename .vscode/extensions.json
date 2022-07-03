@@ -1,3 +1,22 @@
 {
-  "recommendations": ["Vue.volar"]
+  "recommendations": [
+    "vue.volar",
+    "steoates.autoimport",
+    "antfu.where-am-i",
+    "esbenp.prettier-vscode",
+    "antfu.unocss",
+    "antfu.theme-vitesse",
+    "antfu.iconify",
+    "lokalise.i18n-ally",
+    "pkief.material-icon-theme",
+    "dbaeumer.vscode-eslint",
+    "usernamehw.errorlens",
+    "jingwang37.element-plus-snippets",
+    "editorconfig.editorconfig",
+    "mikestead.dotenv",
+    "naumovs.color-highlight",
+    "streetsidesoftware.code-spell-checker",
+    "antfu.icons-carbon",
+    "formulahendry.auto-rename-tag"
+  ]
 }
