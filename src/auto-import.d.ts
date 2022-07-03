@@ -16,6 +16,7 @@ declare global {
   const ElMessageBox: typeof import('element-plus/es')['ElMessageBox']
   const IS_COLLAPSE: typeof import('./composables/constants')['IS_COLLAPSE']
   const asyncComputed: typeof import('@vueuse/core')['asyncComputed']
+  const asyncRouter: typeof import('./store/async-router')['asyncRouter']
   const autoResetRef: typeof import('@vueuse/core')['autoResetRef']
   const changeThemes: typeof import('./composables/custom-themes')['changeThemes']
   const computed: typeof import('vue')['computed']
@@ -42,6 +43,8 @@ declare global {
   const effectScope: typeof import('vue')['effectScope']
   const extendRef: typeof import('@vueuse/core')['extendRef']
   const generateNewStyle: typeof import('./composables/custom-themes')['generateNewStyle']
+  const generator: typeof import('./router/generator-routers')['generator']
+  const generatorDynamicRouter: typeof import('./router/generator-routers')['generatorDynamicRouter']
   const getCurrentInstance: typeof import('vue')['getCurrentInstance']
   const getCurrentScope: typeof import('vue')['getCurrentScope']
   const getItem: typeof import('./utils/storage')['getItem']
@@ -287,6 +290,7 @@ declare module 'vue' {
     readonly ElMessageBox: UnwrapRef<typeof import('element-plus/es')['ElMessageBox']>
     readonly IS_COLLAPSE: UnwrapRef<typeof import('./composables/constants')['IS_COLLAPSE']>
     readonly asyncComputed: UnwrapRef<typeof import('@vueuse/core')['asyncComputed']>
+    readonly asyncRouter: UnwrapRef<typeof import('./store/async-router')['asyncRouter']>
     readonly autoResetRef: UnwrapRef<typeof import('@vueuse/core')['autoResetRef']>
     readonly changeThemes: UnwrapRef<typeof import('./composables/custom-themes')['changeThemes']>
     readonly computed: UnwrapRef<typeof import('vue')['computed']>
@@ -313,6 +317,8 @@ declare module 'vue' {
     readonly effectScope: UnwrapRef<typeof import('vue')['effectScope']>
     readonly extendRef: UnwrapRef<typeof import('@vueuse/core')['extendRef']>
     readonly generateNewStyle: UnwrapRef<typeof import('./composables/custom-themes')['generateNewStyle']>
+    readonly generator: UnwrapRef<typeof import('./router/generator-routers')['generator']>
+    readonly generatorDynamicRouter: UnwrapRef<typeof import('./router/generator-routers')['generatorDynamicRouter']>
     readonly getCurrentInstance: UnwrapRef<typeof import('vue')['getCurrentInstance']>
     readonly getCurrentScope: UnwrapRef<typeof import('vue')['getCurrentScope']>
     readonly getItem: UnwrapRef<typeof import('./utils/storage')['getItem']>

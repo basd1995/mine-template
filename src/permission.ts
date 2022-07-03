@@ -60,6 +60,7 @@ router.beforeEach(async (to, from, next) => {
             })
             vls.set(ALL_APPS_MENU, applocation, 7 * 24 * 60 * 60 * 1000)
           }
+          generatorDynamicRouter(vls.get(ALL_APPS_MENU)[0].menu)
           // 请求带有 redirect 重定向时，登录自动重定向到该地址
           const redirect = decodeURIComponent(from.query.redirect as string || to.path)
           if (to.path === redirect) {

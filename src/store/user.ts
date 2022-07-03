@@ -49,6 +49,7 @@ export const userStore = defineStore('userStore', {
         window.location.reload()
       }, 16)
     },
+    // 清楚主要信息
     clearInfo() {
       this.admintype = ''
       this.roles = ''
