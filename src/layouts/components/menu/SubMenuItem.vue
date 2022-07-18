@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import MenuItem from './MenuItem.vue'
 const props = defineProps<{
   menuItem?: any
 }>()

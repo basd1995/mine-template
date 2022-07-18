@@ -7,8 +7,10 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    BasicLayout: typeof import('./layouts/BasicLayout.vue')['default']
     DarkColorTest: typeof import('./components/DarkColorTest.vue')['default']
     ElButton: typeof import('element-plus/es')['ElButton']
+    ElColorPicker: typeof import('element-plus/es')['ElColorPicker']
     ElContainer: typeof import('element-plus/es')['ElContainer']
     ElForm: typeof import('element-plus/es')['ElForm']
     ElFormItem: typeof import('element-plus/es')['ElFormItem']
@@ -22,10 +24,17 @@ declare module '@vue/runtime-core' {
     ElSubMenu: typeof import('element-plus/es')['ElSubMenu']
     ElTabPane: typeof import('element-plus/es')['ElTabPane']
     ElTabs: typeof import('element-plus/es')['ElTabs']
+    Header: typeof import('./layouts/components/Header.vue')['default']
     HelloWorld: typeof import('./components/HelloWorld.vue')['default']
+    Iframe: typeof import('./layouts/Iframe.vue')['default']
     LightColorTest: typeof import('./components/LightColorTest.vue')['default']
+    Menu: typeof import('./layouts/components/menu/Menu.vue')['default']
+    MenuItem: typeof import('./layouts/components/menu/MenuItem.vue')['default']
+    PageLayout: typeof import('./layouts/PageLayout.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    Sidebar: typeof import('./layouts/components/Sidebar.vue')['default']
+    SubMenuItem: typeof import('./layouts/components/menu/SubMenuItem.vue')['default']
     ThemePicker: typeof import('./components/ThemePicker.vue')['default']
   }
 
